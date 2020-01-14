@@ -10,4 +10,4 @@ Dependencies:
 
 Run nynorsk.py while typing to get words continously looked up.
 
-Run nynorsk_document.py quickly search through a .txt or .docx document.
+Run nynorsk_document.py to quickly search through a .txt or .docx document.
