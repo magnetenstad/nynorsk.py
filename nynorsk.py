@@ -1,6 +1,6 @@
 from lib.lib import *
 
-ordliste_nynorsk, ordliste_bokmål, ordliste_feil = ordlister()
+ordlister_init()
 
 driver = driver_launch()
 

@@ -1,8 +1,8 @@
 from lib.lib import *
 
-ordliste_nynorsk, ordliste_bokmål, ordliste_feil = ordlister()
+ordlister_init()
 
-filename = "C:/Users/Magne Tenstad/Desktop/same.docx"#input("input path:")
+filename = input("input path:")
 
 text = ""
 
@@ -15,7 +15,7 @@ elif ".docx" in filename:
 
 text = "".join((char for char in text if char.isalpha() or char == " "))
 
-words = [word for word in text.split()]
+words = text.split()
 
 check_grammar(words, print_all = False)
 

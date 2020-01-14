@@ -14,7 +14,7 @@ def driver_launch():
 
     return driver
 
-def ordlister():
+def ordlister_init():
     global ordliste_nynorsk, ordliste_bokmål, ordliste_feil
 
     with open("lib/ordliste_nynorsk.txt") as file:
@@ -47,7 +47,7 @@ def check_grammar(words, web = False, print_all = True):
             output = ""
 
             if word in ordliste_bokmål:
-                output += word + " || bokmålsord\n"
+                output += "| bokmålsord |\n"
 
             word_spaced = " " + word.lower() + " "
 
@@ -56,7 +56,7 @@ def check_grammar(words, web = False, print_all = True):
                     if feil[0] and word_spaced.replace(feil[0], "").isspace():
                         pass
                     else:
-                        output += word + " (" + feil[0] + ") ||" + feil[1] + "\n"
+                        output += "(" + feil[0] + ") | " + feil[1] + " |\n"
 
             for i in range(len(word) + 1, 0, -1):
                 if word[:i].lower() in ordliste_nynorsk or word[:i] in ordliste_nynorsk:
@@ -71,4 +71,4 @@ def check_grammar(words, web = False, print_all = True):
                     break
 
             if print_all or output != "":
-                print("WORD: <" + word + ">\n" + output)
+                print("[" + word + "]\n" + output)
