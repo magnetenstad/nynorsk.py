@@ -2,19 +2,13 @@ import csv
 import keyboard
 from docx import Document
 
-def getText(doc):
-    fullText = []
-    for para in doc.paragraphs:
-        fullText.append(para.text)
-    return " ".join(fullText)
-
 debug = True
 
-with open("nynorsk.csv") as file:
+with open("ordliste_språkrådet.csv") as file:
     reader = csv.reader(file, delimiter=';')
     dictionary = [row for row in reader if row[0] != ""]
 
-with open("bokmålsord.txt") as file:
+with open("ordliste_bokmål_eksklusiv.txt") as file:
     bokmålsord = file.read().split()
 
 with open("ordliste_nynorsk.txt") as file:
