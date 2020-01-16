@@ -2,7 +2,13 @@ from lib.lib import *
 
 ordlister_init()
 
-restart()
+web = ""
+while web != "y" and web != "n":
+    web = input("use web? (y/n)")
+web = web == "y"
+
+if web:
+    driver_launch()
 
 while 1:
     words = []
@@ -13,9 +19,7 @@ while 1:
         if string.count(" "):
             for word in string.split():
                 words.append(word)
-                if word == "rx": restart()
         else:
             words.append(string)
-            if string == "rx": restart()
 
-    check_grammar(words)
+    check_grammar(words, web = web)
