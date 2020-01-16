@@ -8,4 +8,4 @@ Run nynorsk_document.py to quickly search through a .txt or .docx document.
   - selenium - `pip install selenium`
   - docx - `pip install python-docx`
 - Chrome 79 ( latest stable )
-- ChromeDriver in Windows PATH ( located in lib )
+- ChromeDriver ( included )
