@@ -62,13 +62,14 @@ def check_grammar(words, web = False, print_all = True):
                     output += "(" + feil[0] + ") | " + feil[1] + " |\n"
 
             for i in range(len(word) + 1, 0, -1):
-                if print_all or i < len(word):
-                    if word[:i].lower() in ordliste_nynorsk or word[:i] in ordliste_nynorsk:
+                if word[:i].lower() in ordliste_nynorsk or word[:i] in ordliste_nynorsk:
+                    if print_all or i < len(word):
                         output += "<" + word[:i] + "> i ordlista"
-                        break
-                    elif i < len(word) and (word[:i] + "e").lower() in ordliste_nynorsk:
+                    break
+                elif i < len(word) and (word[:i] + "e").lower() in ordliste_nynorsk:
+                    if print_all or i < len(word):
                         output += "<" + word[:i] + "e> i ordlista"
-                        break
+                    break
 
             print("[" + word + "]\n" + output)
 
