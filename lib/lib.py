@@ -58,20 +58,22 @@ def check_grammar(words, web = False, print_all = True):
             word_spaced = " " + word.lower() + " "
 
             for feil in ordliste_feil:
-                if feil[0].replace("_", " ").replace("-", "") in word_spaced and (not feil[0] or not word_spaced.replace(feil[0], "").isspace()):
+                replaced = feil[0].replace("_", " ").replace("-", "")
+                if replaced in word_spaced and not (feil[0].count("-") and word_spaced.replace(replaced, "").isspace()):
                     output += "(" + feil[0] + ") | " + feil[1] + " |\n"
 
             for i in range(len(word) + 1, 0, -1):
                 if word[:i].lower() in ordliste_nynorsk or word[:i] in ordliste_nynorsk:
                     if print_all or i < len(word):
-                        output += "<" + word[:i] + "> i ordlista"
+                        output += "<" + word[:i] + "> i ordlista\n"
                     break
                 elif i < len(word) and (word[:i] + "e").lower() in ordliste_nynorsk:
                     if print_all or i < len(word):
-                        output += "<" + word[:i] + "e> i ordlista"
+                        output += "<" + word[:i] + "e> i ordlista\n"
                     break
 
-            print("[" + word + "]\n" + output)
+            if print_all or output != "":
+                print("[" + word + "]\n" + output)
 
             if web:
                 _input = driver.find_element_by_class_name("form-input")
