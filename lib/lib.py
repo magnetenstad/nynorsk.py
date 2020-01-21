@@ -72,9 +72,6 @@ def check_grammar(words, web = False, print_all = True):
                         output += "<" + word[:i] + "e> i ordlista\n"
                     break
 
-            if print_all or output != "":
-                print("[" + word + "]\n" + output)
-
             if web:
                 _input = driver.find_element_by_class_name("form-input")
                 while 1:
@@ -83,7 +80,7 @@ def check_grammar(words, web = False, print_all = True):
                         _input.send_keys(word + "\n")
                         try:
                             text = driver.find_element_by_xpath('//*[@id="fetchedText"]/div/ul/div/div/li[1]/div/div[2]').text
-                            print("<" + text + "> ifølge lexin")
+                            output += "<" + text + "> ifølge lexin\n"
                             driver.switch_to.window("uib")
                             driver.find_element_by_id("felt").clear()
                             driver.find_element_by_id("felt").send_keys(text)
@@ -96,3 +93,6 @@ def check_grammar(words, web = False, print_all = True):
 
                     except:
                          time.sleep(10**-6)
+
+            if print_all or output != "":
+                print("[" + word + "]\n" + output)
