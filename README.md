@@ -7,5 +7,5 @@ Run nynorsk_document.py to quickly search through a .txt or .docx document.
   - keyboard - `pip install keyboard`
   - selenium - `pip install selenium`
   - docx - `pip install python-docx`
-- Chrome 79 ( latest stable )
-- ChromeDriver ( included )
+- Google Chrome ( latest stable )
+- ChromeDriver ( included, but may not be up to date )
