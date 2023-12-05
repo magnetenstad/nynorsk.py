@@ -1,8 +1,6 @@
 import sys
 import csv
-import keyboard
 import time
-from docx import Document
 from selenium import webdriver
 
 def driver_launch():

@@ -1,4 +1,5 @@
 from lib.lib import *
+import keyboard
 
 ordlister_init()
 
